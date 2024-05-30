@@ -2,21 +2,24 @@ import { catsData } from '/data.js'
 
 const emotionRadios = document.getElementById('emotion-radios')
 
-
 emotionRadios.addEventListener('change', highlightCheckedOption)
 
 function highlightCheckedOption(e){
-     document.getElementById(e.target.id).classList.add("highlight")
 /*
 Challenge:
-1. highlightCheckedOption should take control 
-   of the selected radio input and add the CSS
-   class of "highlight" to its classlist.
-*/
+1. Create an array of all items that have 
+   the "radio" class.
+2. Iterate over the array and remove the 
+   "highlight" class from each one.
+*/ 
+    const radios = document.getElementsByClassName('radio')
     
-    console.log(e.target.id)
+    for (let radio of radios){
+        radio.classList.remove('highlight')
+    }
+
+    document.getElementById(e.target.id).parentElement.classList.add('highlight')
 }
- 
 
 function getEmotionsArray(cats){
     const emotionsArray = []    
